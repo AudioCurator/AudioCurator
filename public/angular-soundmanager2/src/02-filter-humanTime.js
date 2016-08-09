@@ -1,4 +1,4 @@
-ngSoundManager.filter('humanTime', function () {
+/*ngSoundManager.filter('humanTime', function () {
         return function (input) {
             function pad(d) {
                 return (d < 10) ? '0' + d.toString() : d.toString();
@@ -9,4 +9,4 @@ ngSoundManager.filter('humanTime', function () {
 
             return pad(min) + ':' + pad(sec);
         };
-    });
+    });*/

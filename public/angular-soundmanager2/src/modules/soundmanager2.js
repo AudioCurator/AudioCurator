@@ -527,7 +527,7 @@
          * @param {object} oOptions Optional: Sound options
          * @return {SMSound} The SMSound object
          */
-        this.play = function(sID, oOptions) {
+/*        this.play = function(sID, oOptions) {
             var result = null,
                 // legacy function-overloading use case: play('mySound', '/path/to/some.mp3');
                 overloaded = (oOptions && !(oOptions instanceof Object));
@@ -563,7 +563,7 @@
             }
             return result;
         };
-        this.start = this.play; // just for convenience
+        this.start = this.play;*/ // just for convenience
         /**
          * Calls the setPosition() method of a SMSound object by ID.
          *

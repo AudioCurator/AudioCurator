@@ -39,7 +39,7 @@
         <!-- init soundManager2 player -->
         <sound-manager></sound-manager>
 
-            <div id="track-name"><h4 id="track-name">Now Playing: {{ currentPlaying.title }} ({{ currentPostion }} / {{ currentDuration }})</h4></div>
+            <div id="track-name"><h4 id="track-name">Now Playing: {{ currentPlaying.title }} by {{ currentPlaying.artist }} ({{ currentPosition }} / {{ currentDuration }})</h4></div>
 
             <!-- Play/Pause button and shuffle button -->
             <!-- To change Play or Pause icons you will have to see line 5149 in the angular-soundmanager2.js file -->
@@ -56,7 +56,7 @@
             <button music-volume data-type="decrease" id="volume-down"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
 
             <!-- Bug! The currentPostion (sic) and/or currentDuration push the play button to the left until a song starts playing -->
-            <h5 class="progress-label">{{ currentPostion }}</h5>
+            <h5 class="progress-label">{{ currentPosition || "00:00" }}</h5>
             <h5 class="progress-label-after">{{ currentDuration }}</h5>
 
             <!-- Seekbar -->
