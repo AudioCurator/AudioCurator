@@ -1,4 +1,4 @@
-ngSoundManager.directive('soundManager', ['$filter', 'angularPlayer',
+/*ngSoundManager.directive('soundManager', ['$filter', 'angularPlayer',
     function($filter, angularPlayer) {
         return {
             restrict: "E",
@@ -13,6 +13,7 @@ ngSoundManager.directive('soundManager', ['$filter', 'angularPlayer',
                 scope.$on('track:id', function(event, data) {
                     scope.$apply(function() {
                         scope.currentPlaying = angularPlayer.currentTrackData();
+                        console.log(scope.currentPlaying);
                     });
                 });
                 scope.$on('currentTrack:position', function(event, data) {
@@ -40,4 +41,4 @@ ngSoundManager.directive('soundManager', ['$filter', 'angularPlayer',
             }
         };
     }
-]);
+]);*/

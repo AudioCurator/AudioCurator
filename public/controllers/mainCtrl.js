@@ -98,22 +98,13 @@ angular.module("AudioCurator").controller("mainCtrl", function($scope, $rootScop
 
   var buildPlaylist = function(postData) {
     console.log('buildPlaylist postData', postData);
-    $scope.songs = [];
-    // for (var i = 0; i < postData.length; i++) {     // This for loop doesn't produce streamable results. Reason unknown.
-    //   console.log('METHOD ONE');
-    //   var track = {
-    //     id: postData[i].trackInfo.soundcloudId,
-    //     title: postData[i].trackInfo.title,
-    //     artist: 'herpderp placeholder',
-    //     url: postData[i].trackInfo.streamURL + '?client_id=' + mainServ.clientId
-    //   };
-    //   $scope.songs.push(track);
-    //   console.log("buildplaylist tracks" + i, track);
-    // }
+    /*$scope.songs = [];*/
+
     for (var i = 0; i < postData.length; i++) {
-      console.log('METHOD TWO');
+
       SC.stream('/tracks/' + postData[i].trackInfo.soundcloudId, function(sm_object){
         var url = 'https' + sm_object.url.slice(4);
+        console.log(url);
         var track = {
           id: postData[i].trackInfo.soundcloudId,
           title: postData[i].trackInfo.title,
@@ -122,11 +113,41 @@ angular.module("AudioCurator").controller("mainCtrl", function($scope, $rootScop
         };
         $scope.songs.push(track);
         console.log("buildplaylist2 track" + i, track);
+        console.log($scope.songs);
       })
     }
   };
 
 
+
+/*  var getTrackInfo = function(url) {
+
+    SC.get(url, {
+            limit: 5
+        }, function(tracks) {
+  }*/
+
+/*        SC.get("https://api.soundcloud.com/groups/55517/tracks", {
+            limit: 5
+        }, function(tracks) {
+            for (var i = 0; i < tracks.length; i ++) {
+                SC.stream( '/tracks/' + tracks[i].id, function( sm_object ){
+
+                  var url = 'https' + sm_object.url.slice(4);
+                    var track = {
+                        id: tracks[i].id,
+                        title: tracks[i].title,
+                        artist: tracks[i].genre,
+                        url: url
+                    };
+
+                    console.log('track', track);
+                    $scope.$apply(function () {
+                        $scope.songs.push(track);
+                    });
+                });
+            }
+        });*/
 
   /////////////// I think these can be removed? ///////////////////
   $scope.name = mainServ.name;
